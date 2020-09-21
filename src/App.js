@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import SelectYourTeam from "./components/SelectYourTeam";
+import SelectTheirTeam from "./components/SelectTheirTeam";
+import Results from "./components/Results";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      teamCode: "ATL",
+    };
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1>NBA Fantasy 9-Cat Tool</h1>
+        <h2>
+          Enter your team and your opponent's team below and we will show you
+          how you can improve your team!
+        </h2>
+
+        <div class="body">
+          <div class="col">
+            <h3>Team 1</h3>
+            <SelectYourTeam />
+          </div>
+          <div class="col">
+            <h3>Team 2</h3>
+            <SelectTheirTeam />
+          </div>
+          <div>{/* <Results /> */}</div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
